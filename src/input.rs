@@ -38,9 +38,9 @@ cfg_if! {
         use std::io::{BufRead, BufReader, Seek, SeekFrom};
     } else {
         use std::collections::HashMap;
-        #[cfg(not(feature = "mesalock_sgx"))]
+        #[cfg(not(target_vendor = "teaclave"))]
         use std::fs::File;
-        #[cfg(feature = "mesalock_sgx")]
+        #[cfg(target_vendor = "teaclave")]
         use std::untrusted::fs::File;
         use std::io::{BufRead, BufReader, Seek, SeekFrom};
     }

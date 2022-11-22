@@ -97,10 +97,10 @@ use rand::prelude::SliceRandom;
 #[cfg(feature = "enable_training")]
 use rand::thread_rng;
 
-#[cfg(not(feature = "mesalock_sgx"))]
+#[cfg(not(target_vendor = "teaclave"))]
 use std::fs::File;
 
-#[cfg(feature = "mesalock_sgx")]
+#[cfg(target_vendor = "teaclave")]
 use std::untrusted::fs::File;
 
 use std::io::prelude::*;
